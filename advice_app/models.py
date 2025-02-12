@@ -12,7 +12,6 @@ class FeedBack(models.Model):
     def __str__(self):
         return self.name
 
-
     #contact model
 
 class Contact(models.Model):
@@ -36,7 +35,7 @@ class Event(models.Model):
 class Counsellor(models.Model):
     c_id=models.CharField(max_length=50,primary_key=True)
     c_password=models.CharField(max_length=50)
-    c_name=models.CharField(max_length=50)
+    c_name=models.CharField(max_length=100)
     c_email=models.EmailField(max_length=100)
     c_phone=models.CharField(max_length=50)
     c_city=models.CharField(max_length=50)
@@ -79,7 +78,7 @@ class College(models.Model):
     college_phone=models.CharField(max_length=50,null=False)
     college_address=models.TextField()
     college_website=models.CharField(max_length=100,null=False)
-    college_icon=models.FileField(max_length=50,upload_to="advice_app/collegephoto",default="")
+    college_icon=models.FileField(max_length=50,upload_to="advice_app/college_photo",default="")
     college_rating=models.CharField(max_length=10,null=False)
     def __str__(self):
         return self.college_name
@@ -107,7 +106,7 @@ class Appointment(models.Model):
     cou_detail=models.ForeignKey(Counsellor,on_delete=models.DO_NOTHING)
     message=models.CharField(max_length=200)
     date=models.DateField(max_length=100)
-    coun_ans=models.TextField(null=True,blank=True)
+    count_ans=models.TextField(null=True,blank=True)
     status=models.CharField(max_length=50,default=False)
     def __str__(self):
         return self.message

@@ -45,7 +45,7 @@ def aboutus(request):
 
 def contactus(request):
     if request.method =='GET':
-        return render(request,'advice_app/html/contact_us.html')   
+        return render(request,'advice_app/html/contact_us.html')
     if request.method =='POST':
         user_name= request.POST["name"]
         user_phone= request.POST["phone"]
